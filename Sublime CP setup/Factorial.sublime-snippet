@@ -1,0 +1,31 @@
+<snippet>
+<content>
+<![CDATA[
+const int store=1e6+7;
+ll fact[store];
+/*----------------------
+Copy Paste this in main function;
+fact[0]=1;
+for(int i=1;i<store;i++)
+{
+  fact[i]=(i*fact[i-1]);
+  fact[i]%=mod;
+}
+-----------------*/
+
+ll ncr(ll n,ll r)
+{
+  /* previously import "binpowmod" */
+  ll res=fact[n];
+  res*=inv(fact[n-r]);
+  res%=mod;
+  res*=inv(fact[r]);
+  res%=mod;
+  return res;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>factorial</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
