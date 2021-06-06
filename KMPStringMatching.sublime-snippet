@@ -1,0 +1,76 @@
+<snippet>
+	<content><![CDATA[
+
+void computeLPS(string& pattern,vector<int>& LPS)
+{
+    // Longest Prefix Suffix
+    int n = pattern.length();
+    LPS = vector<int>(n,0);
+
+    LPS[0] = 0;
+    int i=1,len = 0;
+
+    while(i<n)
+    {
+        if(pattern[i] == pattern[len])
+        {
+            len++;
+            LPS[i] = len;
+            i++;
+        }
+        else
+        {
+            if(len!=0)
+            {
+                len = LPS[len-1];
+                // Dont increment i ! --> you are going back to check if some part matches.
+            }
+            else
+            {
+                // len = 0 --> not matching at all.
+                LPS[i] = 0;
+                i++; 
+            }
+        }
+    }
+}
+
+void KMPAlgorithm(string& str,string& pattern)
+{
+    int n = str.length();
+    int m = pattern.length();
+
+    vector<int> LPS;
+    computeLPS(pattern,LPS);
+
+    int i=0,j=0;
+
+    while(i<n)
+    {
+        if(str[i] == pattern[j])
+        {
+            i++;
+            j++;
+        }
+
+        if(j==m)
+        {
+            cout<<"Found matching pattern at "<<i-j<<endl;
+            j = LPS[j-1];
+        }
+        else if(i<n && pattern[j] != str[i])
+        {
+            if(j!=0)
+                j = LPS[j-1];
+            else
+                i++;
+        }
+    }
+}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>KMPAlgorithm</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

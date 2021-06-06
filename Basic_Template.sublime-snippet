@@ -2,14 +2,7 @@
   <content>
 <![CDATA[
 /****************************************************************************
-Is this the real life? Is this just fantasy?
-Caught in a landslide, no escape from reality
-Open your eyes, look up to the skies and see
-I'm just a poor boy, I need no sympathy
-Because I'm easy come, easy go, little high, little low
-Any way the wind blows doesn't really matter to me, to me!!!
---------------------------------------------------
-CP is quite cool.It becomes cooler when you enjoy learning new things
+    BOB THE BUILDER...
 ******************************************************************************/
 #include <bits/stdc++.h>
 using namespace std;
@@ -18,20 +11,28 @@ typedef long long ll;
 #define mp make_pair
 #define endl "\n"
 #define rep(i,n) for(int i=0;i<n;i++)
-#define loop(i,a,b) for(int i=a;i<=b;i++)
-#define pool(i,a,b) for(int i=a;i>=b;i--)
 #define pi pair<int,int>
 #define pll pair<ll,ll>
 #define vi vector<int>
-#define vpi vector<pair<int,int>>
-#define vll vector<ll>
-#define vb vector<bool>
 #define all(x) x.begin(),x.end()
-#define sz(a) a.size()
 #define ff first
 #define ss second
-#define debug(x) cout<<#x<<" = "<<x<<endl;
-const int mod=1e9+7;
+const long long mod=1e9+7;
+
+
+/* --------------------------DEBUGGING-----------------------*/
+#ifndef DEBUG
+#define debug(...) __f(#__VA_ARGS__, __VA_ARGS__)
+template <typename Arg1>
+void __f(const char* name, Arg1&& arg1){
+  cout << name << " : " << arg1 << endl;
+}
+template <typename Arg1, typename... Args>
+void __f(const char* names, Arg1&& arg1, Args&&... args){
+  const char* comma = strchr(names + 1, ',');cout.write(names, comma - names) << " : " << arg1<<" | ";__f(comma+1, args...);
+}
+#endif
+/*------------------------------------------------------------*/
 
 void solve()
 {
@@ -40,12 +41,6 @@ void solve()
 
 int main()
 {
-
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt","r",stdin);
-  freopen("output.txt","w",stdout);
-  #endif
-
   ios::sync_with_stdio(false);
   cin.tie(0);
 
