@@ -1,0 +1,48 @@
+<snippet>
+<content>
+<![CDATA[
+
+// Fast Sieve -- Copied from GeeksforGeeks
+const long long MAXN = 1e7+5;
+vector<bool> isprime(MAXN , true);
+vector<long long> prime;
+vector<long long> spf(MAXN);
+
+// Cut paste from here into main.
+isprime[0] = isprime[1] = false ;
+
+// Fill rest of the entries
+for (long long int i=2; i<MAXN ; i++)
+{
+    // If isPrime[i] == True then i is prime number
+    if (isprime[i])
+    {
+        // put i into prime[] vector
+        prime.push_back(i);
+
+        // A prime number is its own smallest prime factor
+        spf[i] = i;
+    }
+
+    // Remove all multiples of  i*prime[j] which are
+    // not prime by making isPrime[i*prime[j]] = false
+    // and put smallest prime factor of i*Prime[j] as prime[j]
+    // [ for exp :let  i = 5 , j = 0 , prime[j] = 2 [ i*prime[j] = 10 ]
+    // so smallest prime factor of '10' is '2' that is prime[j] ]
+    // this loop run only one time for number which are not prime
+    for (long long int j=0; j < (int)prime.size() && i*prime[j] < MAXN && prime[j] <= spf[i];j++)
+    {
+        isprime[i*prime[j]]=false;
+
+        // put smallest prime factor of i*prime[j]
+        spf[i*prime[j]] = prime[j] ;
+    }
+}
+
+]]>
+</content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>sieveFast</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
