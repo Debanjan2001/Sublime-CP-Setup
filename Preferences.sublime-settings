@@ -1,10 +1,10 @@
 {
-	"color_scheme": "Packages/Agila Theme/Agila Neon Monocyanide.tmTheme",
-	"font_size": 15,
+	"color_scheme": "Packages/Monokai Dark/Monokai Dark.tmTheme",
+	"font_size": 16,
 	"ignored_packages":
 	[
 		"Vintage",
 	],
 	"save_on_focus_lost": true,
-	"theme": "Agila Origin.sublime-theme",
+	"theme": "Adaptive.sublime-theme",
 }
